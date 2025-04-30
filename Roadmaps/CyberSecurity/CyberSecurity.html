@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cybersecurity Roadmap</title>
+    <link rel="stylesheet" href="CyberSecurity.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Cybersecurity Roadmap</h1>
+      <button id="downloadBtn">Download as PDF</button>
+    </header>
+
+    <main id="roadmapContent" class="content">
+      <section>
+        <h2>1. Basics of Computer & Networking</h2>
+        <ul>
+          <li>Understand Computer Architecture</li>
+          <li>Learn OS Basics: Windows & Linux</li>
+          <li>Get familiar with Networking: TCP/IP, DNS, HTTP, Firewalls</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Programming & Scripting</h2>
+        <ul>
+          <li>Learn Python or Bash for automation</li>
+          <li>Understand JavaScript and SQL basics</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Linux & System Administration</h2>
+        <ul>
+          <li>Get comfortable with Linux Command Line</li>
+          <li>User & File Permissions, Process Management</li>
+          <li>Install, Configure, Secure Linux Services</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Security Concepts</h2>
+        <ul>
+          <li>Understanding CIA Triad, Threats, Vulnerabilities</li>
+          <li>Common Attack Types: XSS, SQLi, DoS, etc.</li>
+          <li>Firewalls, IDS/IPS, VPNs</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Penetration Testing</h2>
+        <ul>
+          <li>Information Gathering (Nmap, Whois)</li>
+          <li>Vulnerability Analysis (Nessus, OpenVAS)</li>
+          <li>Exploitation using Metasploit</li>
+          <li>Post Exploitation & Reporting</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Web Application Security</h2>
+        <ul>
+          <li>OWASP Top 10: SQL Injection, CSRF, XSS, etc.</li>
+          <li>Burp Suite, OWASP ZAP</li>
+          <li>Secure Coding Practices</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>7. Tools & Certifications</h2>
+        <ul>
+          <li>Wireshark, Kali Linux, John the Ripper</li>
+          <li>TryHackMe, HackTheBox practice labs</li>
+          <li>Certs: CompTIA Security+, CEH, OSCP</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- JS libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Download script -->
+    <script>
+      document
+        .getElementById("downloadBtn")
+        .addEventListener("click", function () {
+          const content = document.getElementById("roadmapContent");
+          html2canvas(content, { scale: 2 }).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jspdf.jsPDF("p", "mm", "a4");
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pageWidth) / canvas.width;
+            pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pdfHeight);
+            pdf.save("Cybersecurity_Roadmap.pdf");
+          });
+        });
+    </script>
+  </body>
+</html>

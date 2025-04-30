@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSync</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">SkillSync</div>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav id="nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#roadmaps">Roadmaps</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#login">Login</a></li>
+            <li>
+              <button class="toggle-theme" id="toggleTheme">Dark Theme</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <h2>Master Your Skills with SkillSync</h2>
+      <p>
+        Access structured learning paths and manage your progress with ease.
+      </p>
+      <a href="#roadmaps" class="btn">Explore Roadmaps</a>
+    </section>
+
+    <section class="roadmaps" id="roadmaps">
+      <h2>Available Roadmaps</h2>
+      <div class="roadmap-cards">
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+          <a href="./Roadmaps/Webdev.html">View</a>
+        </div>
+        <div class="card">
+          <h3>Cybersecurity</h3>
+          <p>Linux, Networking, Python, Ethical Hacking</p>
+
+          <a href="./Roadmaps/CyberSecurity/CyberSecurity.html">View</a>
+        </div>
+        <div class="card">
+          <h3>Machine Learning</h3>
+          <p>Networking, Linux, Cryptography, Tools</p>
+          <a href="./Roadmaps/Webdev.html">View</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboard">
+      <h2>To-Do List</h2>
+      <div class="todo">
+        <input type="text" id="taskInput" placeholder="Add your task here" />
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+      </div>
+    </section>
+
+    <section id="slider">
+      <div
+        id="carouselExampleAutoplaying"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://images.pexels.com/photos/1462633/pexels-photo-1462633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.pexels.com/photos/1152500/pexels-photo-1152500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.pexels.com/photos/2065490/pexels-photo-2065490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+
+          <div class="carousel-item">
+            <img
+              src="https://images.pexels.com/photos/3184636/pexels-photo-3184636.jpeg?auto=compress&cs=tinysrgb&w=600"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form id="contactForm" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+          <p id="formStatus"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer>&copy; 2025 SkillSync. All rights reserved.</footer>
+
+    <script src="script.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

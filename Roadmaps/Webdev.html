@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Stack Web Development Roadmap</title>
+    <link rel="stylesheet" href="webdev.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Full Stack Web Development Roadmap</h1>
+    </header>
+
+    <button id="downloadBtn">📥 Download</button>
+
+    <main id="roadmapContent">
+      <section>
+        <h2>1. Basics of Web</h2>
+        <ul>
+          <li>How Internet Works</li>
+          <li>HTML, CSS, JavaScript Fundamentals</li>
+          <li>Responsive Design</li>
+          <li>Version Control - Git & GitHub</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Front-End Development</h2>
+        <ul>
+          <li>Advanced HTML5 & CSS3</li>
+          <li>Flexbox, Grid, Animations</li>
+          <li>JavaScript ES6+</li>
+          <li>DOM Manipulation</li>
+          <li>Framework: React.js (Hooks, Context API, Routing)</li>
+          <li>State Management: Redux / Zustand</li>
+          <li>Testing: Jest, React Testing Library</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Back-End Development</h2>
+        <ul>
+          <li>Node.js & npm</li>
+          <li>Express.js</li>
+          <li>REST APIs</li>
+          <li>Authentication (JWT, OAuth)</li>
+          <li>Error Handling & Middlewares</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Database</h2>
+        <ul>
+          <li>Relational: MySQL / PostgreSQL</li>
+          <li>NoSQL: MongoDB</li>
+          <li>ORMs: Mongoose / Prisma</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. DevOps & Deployment</h2>
+        <ul>
+          <li>Deployment Platforms: Vercel, Netlify, Render</li>
+          <li>CI/CD Basics</li>
+          <li>Docker Basics</li>
+          <li>Environment Variables</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Extras</h2>
+        <ul>
+          <li>TypeScript</li>
+          <li>Next.js / Remix</li>
+          <li>Unit Testing</li>
+          <li>Real-time Apps: WebSockets</li>
+          <li>Project Ideas & Portfolio Building</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 SkillSync. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("downloadBtn")
+        .addEventListener("click", function () {
+          const content = document.getElementById("roadmapContent");
+
+          html2canvas(content, {
+            scale: 2, // Higher scale = better quality
+          }).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jspdf.jsPDF("p", "mm", "a4");
+
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pageWidth;
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+            pdf.save("FullStackWebDev_Roadmap.pdf");
+          });
+        });
+    </script>
+  </body>
+</html>
